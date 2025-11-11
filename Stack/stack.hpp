@@ -7,6 +7,7 @@ struct Node
     /* data */
     char data;
     Node* next;
+    Node* top;
 };
 
 class Stack{
@@ -19,7 +20,8 @@ class Stack{
         top = newNode;
     }
     Node* pop(){
-        if(top == nullptr) return;
+        if(top == nullptr) 
+        {return nullptr;}
         Node* temp = top;
         top = top->next;
         return temp;
