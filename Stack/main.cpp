@@ -4,43 +4,46 @@
 using namespace std;
 
 
-// stack<char> temp;
-// int main(){
-// string s = "{}[]{}";
-// isValid(s);
-// cout << (isValid(s) ? "Valid" : "Invalid") << endl;
-//   return 0;
-// }
-bool isBalance(string s){
+
+int isBalance(string s){
   stack<char> st;
+
       for(int i=0; i<s.length(); i++){
-        
         char c = s[i];
+      
         if(c=='(' || c=='{' || c=='['){
           st.push(c);
-        }else if(c=='(' || c=='{' || c=='['){
+        }else if(c==')' || c=='}' || c==']'){
           if(st.empty()) 
-          {return false;}
+          {return i+1;}
           char top = st.top();
           if((c==')' && top != '(') ||
              (c=='}' && top != '{') ||
              (c==']' && top != '[')){
-               return false;
+               return i+1;
         }
         st.pop();
-
         }
-      } return st.empty();
+        
+      } 
+      if(!st.empty()){
+        return s.length();
+      }
+      
+      return 0;
     }
 
 int main(){
     string expr;
-    cout<<"Enter expression: ";cin>>expr;
-  
-  if(isBalance(expr)){
+    cout<<"Enter expression: ";
+    cin>>expr;
+  int errorPos = isBalance(expr);
+  if(errorPos == 0){
     cout<<"valid"<<endl;
   }else{
-    cout<<"invalid"<<endl;
+    cout<<"Invalid"<<endl;
+    cout<<"Error at position "<<errorPos<<endl;
   }
+    return 0;
 }
   
