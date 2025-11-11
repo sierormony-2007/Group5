@@ -1,17 +1,11 @@
 #include <stack>
 #include <iostream>
-template <typename T>
-class Ex{
-    public:
-    T a;
-    T getA(){
-        return a;
-    }
-};
-
+#include "stack.hpp"
 using namespace std;
+stack<char> temp;
 int main(){
-    Ex<int>obj;
-    obj.a = 10.01;
-    cout<<obj.getA();
+string s = "(}[]{}";
+isValid(s);
+cout << (isValid(s) ? "Valid" : "Invalid") << endl;
+  return 0;
 }
