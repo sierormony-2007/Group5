@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-    
-=======
+
 #include <stack>
 #include <iostream>
 #include "stack.hpp"
@@ -50,4 +48,3 @@ int main(){
     return 0;
 }
   
->>>>>>> 88b6d447b479b1c617610caa3da488c6226136bb
